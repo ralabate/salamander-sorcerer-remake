@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="Salamander"
+run/main_scene="uid://d3l7dwjff10l3"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"

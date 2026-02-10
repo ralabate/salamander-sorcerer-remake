@@ -14,3 +14,7 @@ config/name="Salamander"
 run/main_scene="uid://d3l7dwjff10l3"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor]
+
+movie_writer/movie_file="C:/Users/Carlos/Documents/Godot Projects/salamander-sorcerer-remake/movies/moving_picture.avi"

@@ -18,3 +18,7 @@ config/icon="res://icon.svg"
 [editor]
 
 movie_writer/movie_file="C:/Users/Carlos/Documents/Godot Projects/salamander-sorcerer-remake/movies/moving_picture.avi"
+
+[global_group]
+
+badguys=""

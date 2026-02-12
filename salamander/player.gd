@@ -18,7 +18,7 @@ func _physics_process(_delta: float) -> void:
 
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
+	if direction and animation_player.current_animation != "swipe":
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:

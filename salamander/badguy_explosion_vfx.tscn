@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://bq7p0eturks05"]
+
+[sub_resource type="Gradient" id="Gradient_ng75p"]
+colors = PackedColorArray(1, 0, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p77kp"]
+gradient = SubResource("Gradient_ng75p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ng75p"]
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+scale_min = 0.099999994
+scale_max = 0.5
+color_ramp = SubResource("GradientTexture1D_p77kp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p77kp"]
+vertex_color_use_as_albedo = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_lekuy"]
+material = SubResource("StandardMaterial3D_p77kp")
+
+[sub_resource type="Animation" id="Animation_ng75p"]
+resource_name = "remove_from_scene"
+length = 2.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p77kp"]
+_data = {
+&"remove_from_scene": SubResource("Animation_ng75p")
+}
+
+[node name="BadguyExplosionVFX" type="GPUParticles3D"]
+amount = 128
+lifetime = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ng75p")
+draw_pass_1 = SubResource("QuadMesh_lekuy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_p77kp")
+}
+autoplay = "remove_from_scene"

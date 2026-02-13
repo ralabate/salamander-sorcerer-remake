@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3l7dwjff10l3"]
+[gd_scene load_steps=7 format=3 uid="uid://d3l7dwjff10l3"]
 
+[ext_resource type="Script" uid="uid://ct0klyjd6wtmi" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c7gckhdb1qr1l" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://3ofau3e2i0v1" path="res://badguy.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bq7p0eturks05" path="res://badguy_explosion_vfx.tscn" id="2_1bvp3"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
 background_mode = 1
@@ -11,6 +13,8 @@ ambient_light_source = 1
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_h2yge")
+death_particles = ExtResource("2_1bvp3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ig7tw")

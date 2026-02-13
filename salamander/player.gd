@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 2.5
+const SPEED = 3
 
 @onready var visual: MeshInstance3D = %Visual
 @onready var animation_player: AnimationPlayer = %AnimationPlayer

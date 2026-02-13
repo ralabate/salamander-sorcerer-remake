@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://3ofau3e2i0v1"]
+[gd_scene load_steps=5 format=3 uid="uid://3ofau3e2i0v1"]
+
+[ext_resource type="Script" uid="uid://dynkr78qlsmhp" path="res://badguy.gd" id="1_lf2yb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yljcb"]
 
@@ -8,7 +10,8 @@ albedo_color = Color(1, 0, 1, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_apgvv"]
 material = SubResource("StandardMaterial3D_lf2yb")
 
-[node name="Badguy" type="RigidBody3D" groups=["badguys"]]
+[node name="Badguy" type="Area3D" groups=["badguys"]]
+script = ExtResource("1_lf2yb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

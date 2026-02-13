@@ -8,10 +8,6 @@ const SPEED = 2.5
 @onready var sword_area: Area3D = %SwordArea
 
 
-func _ready() -> void:
-	sword_area.body_entered.connect(_on_body_entered_sword_area)
-
-
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		animation_player.play("swipe")
@@ -29,11 +25,3 @@ func _physics_process(_delta: float) -> void:
 		visual.look_at(visual.global_position + direction, Vector3.UP)
 
 	move_and_slide()
-
-
-func _on_body_entered_sword_area(body: Node3D) -> void:
-	if not body.is_in_group("badguys"):
-		return
-
-	var rigid_body = body as RigidBody3D
-	rigid_body.apply_impulse(body.transform.basis.z * 10.0)

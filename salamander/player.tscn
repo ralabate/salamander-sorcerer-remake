@@ -14,6 +14,8 @@ material = SubResource("StandardMaterial3D_4flbx")
 size = Vector3(1.5, 0.25, 0.25)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
+radius = 0.203125
+height = 1.8642578
 
 [sub_resource type="Animation" id="Animation_onrkg"]
 length = 0.001
@@ -100,7 +102,7 @@ skeleton = NodePath("../../..")
 unique_name_in_owner = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Visual/SwordPivot/Sword/SwordArea"]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.067871094, 0, 0)
 shape = SubResource("CapsuleShape3D_4flbx")
 disabled = true
 

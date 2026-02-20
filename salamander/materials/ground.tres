@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dubtctii8d42v"]
+
+[ext_resource type="Texture2D" uid="uid://dt5kwas362mms" path="res://textures/ground_DefaultMaterial_BaseColor.exr" id="1_bwv0d"]
+[ext_resource type="Texture2D" uid="uid://dntidb7bjg2re" path="res://textures/ground_DefaultMaterial_Normal.exr" id="2_yl0ol"]
+[ext_resource type="Texture2D" uid="uid://ccon7wdbkd7j3" path="res://textures/ground_DefaultMaterial_Roughness.exr" id="3_26x61"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_317h2"]
+
+[resource]
+albedo_texture = ExtResource("1_bwv0d")
+metallic_texture = SubResource("CompressedTexture2D_317h2")
+roughness_texture = ExtResource("3_26x61")
+normal_enabled = true
+normal_texture = ExtResource("2_yl0ol")

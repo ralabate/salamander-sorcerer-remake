@@ -1,12 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbiwobmnrecwc"]
+[gd_scene load_steps=12 format=3 uid="uid://cbiwobmnrecwc"]
 
 [ext_resource type="PackedScene" uid="uid://cij1ki4r0nvre" path="res://models/mando_remake_model.fbx" id="1_f2ix8"]
 [ext_resource type="Animation" uid="uid://b5sewummc0uoa" path="res://animations/idle.res" id="2_48rwg"]
+[ext_resource type="Script" uid="uid://b083yrk735wve" path="res://mando.gd" id="2_gaqc2"]
+[ext_resource type="Animation" uid="uid://cvuxpcfd2d2tq" path="res://animations/attack.tres" id="3_1hohd"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_48rwg"]
 _data = {
+&"attack": ExtResource("3_1hohd"),
 &"idle": ExtResource("2_48rwg")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gaqc2"]
+animation = &"mando/attack"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_48rwg"]
 animation = &"mando/idle"
@@ -14,22 +20,35 @@ animation = &"mando/idle"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1hohd"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gaqc2"]
-states/mando_idle/node = SubResource("AnimationNodeAnimation_48rwg")
-states/mando_idle/position = Vector2(532, 206)
-transitions = ["Start", "mando_idle", SubResource("AnimationNodeStateMachineTransition_1hohd")]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2hmqe"]
+advance_mode = 2
+advance_expression = "is_attacking == true"
 
-[node name="mando_remake_model" instance=ExtResource("1_f2ix8")]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bp0oq"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gaqc2"]
+states/mando_attack/node = SubResource("AnimationNodeAnimation_gaqc2")
+states/mando_attack/position = Vector2(612, 101.3125)
+states/mando_idle/node = SubResource("AnimationNodeAnimation_48rwg")
+states/mando_idle/position = Vector2(379, 282)
+transitions = ["Start", "mando_idle", SubResource("AnimationNodeStateMachineTransition_1hohd"), "mando_idle", "mando_attack", SubResource("AnimationNodeStateMachineTransition_2hmqe"), "mando_attack", "mando_idle", SubResource("AnimationNodeStateMachineTransition_bp0oq")]
+
+[node name="Mando" instance=ExtResource("1_f2ix8")]
+script = ExtResource("2_gaqc2")
 
 [node name="Skeleton3D" parent="." index="0"]
-bones/1/position = Vector3(0, 0.5481303, -0.015435839)
-bones/2/rotation = Quaternion(0.62403566, 0.6934932, 0.06676045, 0.35382187)
-bones/3/rotation = Quaternion(0.027199194, -0.044251688, 0.9009724, 0.43075582)
-bones/4/rotation = Quaternion(-0.27880087, -0.24219011, -0.21189255, 0.9048291)
-bones/5/rotation = Quaternion(-0.34771642, 0.072054714, -0.69220036, 0.6282995)
-bones/6/rotation = Quaternion(0.02713631, -0.04428562, 0.9008653, 0.43098053)
-bones/7/rotation = Quaternion(-0.27618766, -0.24115294, -0.21102771, 0.9061086)
-bones/8/position = Vector3(0, 0.55197716, -0.013597098)
+bones/1/position = Vector3(0, 0.5897298, -0.015435839)
+bones/2/rotation = Quaternion(0.6720192, 0.65409076, 0.098661914, 0.33289844)
+bones/3/rotation = Quaternion(0.0035907696, -0.054707162, 0.85542923, 0.5150097)
+bones/4/rotation = Quaternion(-0.26578856, -0.24808294, -0.19014186, 0.91195256)
+bones/5/rotation = Quaternion(-0.3272237, 0.103172004, -0.6526122, 0.67555726)
+bones/6/rotation = Quaternion(0.00356245, -0.054717463, 0.8553681, 0.5151104)
+bones/7/rotation = Quaternion(-0.26257047, -0.24767114, -0.18910995, 0.91321045)
+bones/8/position = Vector3(0, 0.59357667, -0.013597098)
+bones/14/rotation = Quaternion(-0.035750855, -3.8188328e-17, 1.0588582e-16, 0.99936074)
+bones/18/rotation = Quaternion(-0.035750855, -1.6316831e-16, 2.8641247e-16, 0.99936074)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
@@ -38,4 +57,5 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource("AnimationNodeStateMachine_gaqc2")
+advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")

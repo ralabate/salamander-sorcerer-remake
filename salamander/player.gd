@@ -4,14 +4,14 @@ extends CharacterBody3D
 @export var speed = 2.5
 @export var push_back = 0.75
 
-@onready var visual: MeshInstance3D = %Visual
+@onready var mando = %Mando
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var sword_area: Area3D = %SwordArea
 
 
 func _physics_process(_delta: float) -> void:
 	if animation_player.current_animation == "swipe":
-		velocity = visual.transform.basis.z * push_back
+		velocity = -mando.transform.basis.z * push_back
 		move_and_slide()
 		return
 
@@ -25,9 +25,13 @@ func _physics_process(_delta: float) -> void:
 		velocity.z = 0.0
 
 	if direction:
-		visual.look_at(visual.global_position + direction, Vector3.UP)
+		mando.look_at(mando.global_position - direction, Vector3.UP)
+		#visual.look_at(visual.global_position + direction, Vector3.UP)
 
 	if Input.is_action_just_pressed("ui_accept"):
+		mando.is_attacking = true
 		animation_player.play("swipe")
+	else:
+		mando.is_attacking = false
 
 	move_and_slide()

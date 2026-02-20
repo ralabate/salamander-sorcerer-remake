@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8yloeuc3kxn0"]
+
+[ext_resource type="PackedScene" uid="uid://otxx5m6y5voo" path="res://models/arch.fbx" id="1_1256q"]
+[ext_resource type="Material" uid="uid://clt6lsep5r8xn" path="res://materials/arch.tres" id="2_p24vg"]
+
+[node name="arch" instance=ExtResource("1_1256q")]
+
+[node name="attribdelete1" parent="." index="0"]
+material_override = ExtResource("2_p24vg")

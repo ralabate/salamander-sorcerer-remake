@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcyrkb6pgidqt"]
+
+[ext_resource type="PackedScene" uid="uid://ywn4txs8sngn" path="res://models/wall_large.fbx" id="1_cjm6d"]
+[ext_resource type="Material" uid="uid://bv5p3mi426da8" path="res://materials/wall_large.tres" id="2_7gs0p"]
+
+[node name="wall_large" instance=ExtResource("1_cjm6d")]
+
+[node name="attribdelete1" parent="." index="0"]
+material_override = ExtResource("2_7gs0p")

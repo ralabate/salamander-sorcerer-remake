@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcnmbmes1xkca"]
+
+[ext_resource type="PackedScene" uid="uid://df6anc8qlvlk3" path="res://models/well.fbx" id="1_8flcd"]
+[ext_resource type="Material" uid="uid://ces06ofbq02yk" path="res://materials/well.tres" id="2_wagxm"]
+
+[node name="well" instance=ExtResource("1_8flcd")]
+
+[node name="uvflatten1" parent="." index="0"]
+material_override = ExtResource("2_wagxm")

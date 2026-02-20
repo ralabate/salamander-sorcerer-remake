@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var push_back = 0.75
 
 @onready var mando = %Mando
+@onready var visual = %Visual
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var sword_area: Area3D = %SwordArea
 
@@ -26,7 +27,7 @@ func _physics_process(_delta: float) -> void:
 
 	if direction:
 		mando.look_at(mando.global_position - direction, Vector3.UP)
-		#visual.look_at(visual.global_position + direction, Vector3.UP)
+		visual.look_at(visual.global_position + direction, Vector3.UP)
 
 	if Input.is_action_just_pressed("ui_accept"):
 		mando.is_attacking = true

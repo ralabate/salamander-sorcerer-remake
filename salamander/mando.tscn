@@ -39,14 +39,14 @@ transitions = ["Start", "mando_idle", SubResource("AnimationNodeStateMachineTran
 script = ExtResource("2_gaqc2")
 
 [node name="Skeleton3D" parent="." index="0"]
-bones/1/position = Vector3(0, 0.5897298, -0.015435839)
-bones/2/rotation = Quaternion(0.6720192, 0.65409076, 0.098661914, 0.33289844)
-bones/3/rotation = Quaternion(0.0035907696, -0.054707162, 0.85542923, 0.5150097)
-bones/4/rotation = Quaternion(-0.26578856, -0.24808294, -0.19014186, 0.91195256)
-bones/5/rotation = Quaternion(-0.3272237, 0.103172004, -0.6526122, 0.67555726)
-bones/6/rotation = Quaternion(0.00356245, -0.054717463, 0.8553681, 0.5151104)
-bones/7/rotation = Quaternion(-0.26257047, -0.24767114, -0.18910995, 0.91321045)
-bones/8/position = Vector3(0, 0.59357667, -0.013597098)
+bones/1/position = Vector3(0, 0.55996656, -0.015435839)
+bones/2/rotation = Quaternion(0.6379157, 0.6828365, 0.07642657, 0.34778878)
+bones/3/rotation = Quaternion(0.02051395, -0.04767995, 0.8891836, 0.4545969)
+bones/4/rotation = Quaternion(-0.27552944, -0.24341393, -0.20615557, 0.90682584)
+bones/5/rotation = Quaternion(-0.3418182, 0.08148185, -0.6814784, 0.6419566)
+bones/6/rotation = Quaternion(0.020461649, -0.04770554, 0.8890881, 0.45478344)
+bones/7/rotation = Quaternion(-0.27273223, -0.24257821, -0.2052412, 0.90810186)
+bones/8/position = Vector3(0, 0.56381345, -0.013597098)
 bones/14/rotation = Quaternion(-0.035750855, -3.8188328e-17, 1.0588582e-16, 0.99936074)
 bones/18/rotation = Quaternion(-0.035750855, -1.6316831e-16, 2.8641247e-16, 0.99936074)
 
